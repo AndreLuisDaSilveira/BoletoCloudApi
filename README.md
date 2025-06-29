@@ -60,7 +60,9 @@ O projeto segue o padrão de arquitetura em camadas, separando responsabilidades
 git clone https://github.com/seu-usuario/BoletoCloudApi.git cd BoletoCloudApi
 
 2. **Configure o arquivo `appsettings.json`:**
-{ "BoletoCloudOptions": { "ApiKey": "sua-api-key", "ApiUrl": "https://sandbox.boletocloud.com/api/v1/boletos" }, "ConnectionStrings": { "DefaultConnection": "Server=localhost;Database=SeuBanco;User Id=usuario;Password=senha;TrustServerCertificate=True;" } }
+{ "BoletoCloudOptions": { "ApiKey": "sua-api-key", "ApiUrl": "https://sandbox.boletocloud.com/api/v1/boletos" }, 
+
+"ConnectionStrings": { "DefaultConnection": "Server=localhost;Database=SeuBanco;User Id=usuario;Password=senha;TrustServerCertificate=True;" } }
 
 3. **Restaure os pacotes NuGet:**
 dotnet restore
