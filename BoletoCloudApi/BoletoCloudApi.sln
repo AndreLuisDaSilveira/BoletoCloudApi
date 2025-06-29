@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoletoCloudApi.Business", "BoletoCloudApi.Business", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletoCloudApi.Business", "src\BoletoCloudApi.Business\BoletoCloudApi.Business.csproj", "{7DFF8C5E-60E4-4A3F-9D04-F7629876DDFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoletoCloudApi.Data", "BoletoCloudApi.Data", "{EDDD95B2-CF43-40E1-8087-5C89A191EEBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletoCloudApi.Data", "src\BoletoCloudApi.Data\BoletoCloudApi.Data.csproj", "{7DFA1464-EFC6-4291-9474-DEBB7B455BCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BoletoCloudApi.Api", "BoletoCloudApi.Api", "{DF756987-0688-4686-B867-312B76CE315D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoletoCloudApi.Api", "src\BoletoCloudApi.Api\BoletoCloudApi.Api.csproj", "{574FCE37-5109-43DB-BE7E-A67EF2A92FC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DFF8C5E-60E4-4A3F-9D04-F7629876DDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFF8C5E-60E4-4A3F-9D04-F7629876DDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFF8C5E-60E4-4A3F-9D04-F7629876DDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFF8C5E-60E4-4A3F-9D04-F7629876DDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DFA1464-EFC6-4291-9474-DEBB7B455BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFA1464-EFC6-4291-9474-DEBB7B455BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFA1464-EFC6-4291-9474-DEBB7B455BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFA1464-EFC6-4291-9474-DEBB7B455BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{574FCE37-5109-43DB-BE7E-A67EF2A92FC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574FCE37-5109-43DB-BE7E-A67EF2A92FC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574FCE37-5109-43DB-BE7E-A67EF2A92FC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574FCE37-5109-43DB-BE7E-A67EF2A92FC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7DFF8C5E-60E4-4A3F-9D04-F7629876DDFB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7DFA1464-EFC6-4291-9474-DEBB7B455BCF} = {EDDD95B2-CF43-40E1-8087-5C89A191EEBD}
+		{574FCE37-5109-43DB-BE7E-A67EF2A92FC6} = {DF756987-0688-4686-B867-312B76CE315D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDE1DCFE-980D-4503-8681-92830A9D7FE1}
+	EndGlobalSection
+EndGlobal
