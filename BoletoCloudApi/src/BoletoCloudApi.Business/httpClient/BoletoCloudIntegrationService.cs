@@ -27,7 +27,6 @@ namespace BoletoCloudApi.Business.httpClient
                 var credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{apiKey}:token"));
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", credentials);
 
-                //var response = await client.GetAsync($"https://sandbox.boletocloud.com/api/v1/boletos/{token}/pdf");
                 var response = await client.GetAsync($"{_boletoCloudOptions.ApiUrl}/{token}");
                 if (!response.IsSuccessStatusCode)
                 {
@@ -90,12 +89,9 @@ namespace BoletoCloudApi.Business.httpClient
                     CharSet = "utf-8"
                 };
 
-                //var apiKey = "api-key_JDx4NdKf7ogjzru05JP6Udrg5jmgRQAeTc9fntf5E-Y=";
                 var apiKey = _boletoCloudOptions.ApiKey;
                 var credentials = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{apiKey}:token"));
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", credentials);
-
-                //var response = await client.PostAsync("https://sandbox.boletocloud.com/api/v1/boletos", content);
 
                 var response = await client.PostAsync(_boletoCloudOptions.ApiUrl, content);
 
@@ -104,7 +100,6 @@ namespace BoletoCloudApi.Business.httpClient
                 if (response.Headers.TryGetValues("X-BoletoCloud-Token", out var tokenValues))
                 {
                     boletoToken = tokenValues.FirstOrDefault();
-                    // Você pode usar ou armazenar o token conforme necessário
                 }
 
                 var pdfBytes = await response.Content.ReadAsByteArrayAsync();
