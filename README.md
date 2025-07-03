@@ -18,7 +18,6 @@ API para geração e obtenção de boletos em PDF utilizando a integração com 
 - Geração de boletos bancários em PDF.
 - Consulta de boletos gerados via token.
 - Busca de boletos por número, CPF e período de emissão.
-- Estrutura extensível para integração com outros serviços bancários.
 
 ## Tecnologias Utilizadas
 
