@@ -34,8 +34,7 @@ namespace BoletoCloudApi.Api.Controllers
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<BoletoViewModel>> ObterPorId(Guid id)
         {
-           var boleto =  _mapper.Map<BoletoViewModel>(await _boletosRepository.ObterPorId(id));
-
+            var boleto = _mapper.Map<BoletoViewModel>(await _boletosRepository.ObterBoletoPorIdAsync(id));
 
             if (boleto == null) return NotFound();
 
