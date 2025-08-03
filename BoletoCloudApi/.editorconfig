@@ -1,0 +1,56 @@
+# .editorconfig para projeto .NET 8 C#
+root = true
+
+[*.cs]
+# Espaços e indentação
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Codificação de arquivos
+charset = utf-8-bom
+
+# Regras de estilo C#
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = true
+csharp_new_line_before_open_brace = all
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+
+# Nomenclatura
+dotnet_naming_rule.private_members_should_be_camel_case.severity = suggestion
+dotnet_naming_rule.private_members_should_be_camel_case.symbols = private_fields
+dotnet_naming_rule.private_members_should_be_camel_case.style = camel_case_style
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_symbols.private_fields.required_modifiers =
+
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+
+# Regras de analisadores .NET
+dotnet_diagnostic.CA1822.severity = warning   # Marcar métodos estáticos quando possível
+dotnet_diagnostic.CA1303.severity = none      # Ignorar aviso de literais localizáveis
+
+# Usings não utilizados (Roslyn/.NET Analyzers)
+dotnet_diagnostic.RemoveUnnecessaryImports.severity = error
+
+# Variáveis não utilizadas (Roslyn/.NET Analyzers)
+dotnet_diagnostic.CS0168.severity = error   # Variável declarada mas não utilizada
+dotnet_diagnostic.CS0219.severity = error   # Variável atribuída mas nunca usada
+
+# Regras StyleCop (exemplo)
+dotnet_diagnostic.SA1600.severity = error  # Exigir comentários de documentação, mas não verifica idioma
+dotnet_diagnostic.SA1309.severity = none      # Permitir campos privados com underline
+dotnet_diagnostic.SA1629.severity = none    # Ignora erros de texto padrão em <summary>
+
+# Comentários em classes e construtores (StyleCop)
+dotnet_diagnostic.SA1600.severity = error   # Exigir comentários de documentação em elementos públicos
+dotnet_diagnostic.SA1642.severity = none   # Exigir comentários de documentação em construtore
+
+# Ordem dos métodos (StyleCop)
+dotnet_diagnostic.SA1201.severity = error   # Elementos devem aparecer na ordem correta
+dotnet_diagnostic.SA1202.severity = error   # Elementos devem ser ordenados por acessibilidade
+
+# Fim do arquivo
