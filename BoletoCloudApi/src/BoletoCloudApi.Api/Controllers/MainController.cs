@@ -1,17 +1,24 @@
-﻿using BoletoCloudApi.Api.ViewModels;
-using BoletoCloudApi.Business.Interfaces;
-using BoletoCloudApi.Business.Notificacoes;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Net;
-
-namespace BoletoCloudApi.Api.Controllers
+﻿namespace BoletoCloudApi.Api.Controllers
 {
+    using System.Net;
+    using BoletoCloudApi.Api.ViewModels;
+    using BoletoCloudApi.Business.Interfaces;
+    using BoletoCloudApi.Business.Notificacoes;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+    /// <summary>
+    /// Classe base para os controllers da API.
+    /// </summary>
     [ApiController]
     public abstract class MainController : ControllerBase
     {
         private readonly INotificador _notificador;
 
+        /// <summary>
+        /// Inicializa uma nova instância da classe <see cref="MainController"/>.
+        /// </summary>
+        /// <param name="notificador">Instância de <see cref="INotificador"/> para gerenciar notificações de erro.</param>
         protected MainController(INotificador notificador)
         {
             _notificador = notificador;

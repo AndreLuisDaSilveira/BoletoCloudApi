@@ -1,19 +1,35 @@
-﻿using BoletoCloudApi.Business.Models;
-using System.Text;
-
-namespace BoletoCloudApi.Business.httpClient
+﻿namespace BoletoCloudApi.Business.httpClient
 {
+    using System.Text;
+    using BoletoCloudApi.Business.Models;
+
+    /// <summary>
+    /// Serviço responsável pela integração com a API BoletoCloud.
+    /// Permite gerar e obter o PDF de boletos, além de aplicar máscaras em dados sensíveis.
+    /// </summary>
     public class BoletoCloudIntegrationService
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly BoletoCloudOptions _boletoCloudOptions;
 
+        /// <summary>
+        /// Inicializa uma nova instância da classe <see cref="BoletoCloudIntegrationService"/>.
+        /// </summary>
+        /// <param name="factory">Fábrica de clientes HTTP.</param>
+        /// <param name="boletoCloudOptions">Opções de configuração da integração com a BoletoCloud.</param>
         public BoletoCloudIntegrationService(IHttpClientFactory factory, BoletoCloudOptions boletoCloudOptions)
         {
             _httpClientFactory = factory;
             _boletoCloudOptions = boletoCloudOptions ?? throw new ArgumentNullException(nameof(boletoCloudOptions), "BoletoCloudOptions cannot be null");
         }
 
+        /// <summary>
+        /// Obtém o PDF de um boleto a partir do token informado.
+        /// </summary>
+        /// <param name="token">Token identificador do boleto.</param>
+        /// <returns>Array de bytes contendo o PDF do boleto.</returns>
+        /// <exception cref="ArgumentException">Lançada se o token for nulo ou vazio.</exception>
+        /// <exception cref="Exception">Lançada em caso de erro na comunicação ou resposta da API.</exception>
         public async Task<byte[]> ObterBoletoPDFAsync(string token)
         {
             if (string.IsNullOrEmpty(token))
@@ -32,6 +48,7 @@ namespace BoletoCloudApi.Business.httpClient
                 {
                     throw new Exception($"Erro ao obter boleto PDF: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
                 }
+
                 return await response.Content.ReadAsByteArrayAsync();
             }
             catch (HttpRequestException ex)
@@ -46,6 +63,12 @@ namespace BoletoCloudApi.Business.httpClient
             }
         }
 
+        /// <summary>
+        /// Gera o PDF de um boleto a partir dos dados informados.
+        /// </summary>
+        /// <param name="boleto">Objeto <see cref="Boleto"/> com os dados do boleto.</param>
+        /// <returns>Objeto <see cref="BoletoPdfResult"/> contendo os bytes do PDF e o token gerado.</returns>
+        /// <exception cref="Exception">Lançada em caso de erro na comunicação ou resposta da API.</exception>
         public async Task<BoletoPdfResult> GerarBoletoPdfAsync(Boleto boleto)
         {
             try
@@ -109,7 +132,7 @@ namespace BoletoCloudApi.Business.httpClient
                     throw new Exception($"Erro ao criar boleto: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
                 }
 
-                return new BoletoPdfResult 
+                return new BoletoPdfResult
                 {
                     PdfBytes = pdfBytes,
                     Token = boletoToken
@@ -129,27 +152,46 @@ namespace BoletoCloudApi.Business.httpClient
             }
         }
 
+        /// <summary>
+        /// Aplica máscara ao CPF informado.
+        /// </summary>
+        /// <param name="cpf">CPF sem formatação.</param>
+        /// <returns>CPF formatado (000.000.000-00) ou valor original se inválido.</returns>
         public static string MascaraCpf(string cpf)
         {
             var numeros = new string(cpf.Where(char.IsDigit).ToArray());
+
             if (numeros.Length == 11)
                 return Convert.ToUInt64(numeros).ToString(@"000\.000\.000\-00");
+
             return cpf;
         }
 
+        /// <summary>
+        /// Aplica máscara ao CNPJ informado.
+        /// </summary>
+        /// <param name="cnpj">CNPJ sem formatação.</param>
+        /// <returns>CNPJ formatado (00.000.000/0000-00) ou valor original se inválido.</returns>
         public static string MascaraCnpj(string cnpj)
         {
             var numeros = new string(cnpj.Where(char.IsDigit).ToArray());
             if (numeros.Length == 14)
                 return Convert.ToUInt64(numeros).ToString(@"00\.000\.000\/0000\-00");
+
             return cnpj;
         }
 
+        /// <summary>
+        /// Aplica máscara ao CEP informado.
+        /// </summary>
+        /// <param name="cep">CEP sem formatação.</param>
+        /// <returns>CEP formatado (00000-000) ou valor original se inválido.</returns>
         public static string MascaraCep(string cep)
         {
             var numeros = new string(cep.Where(char.IsDigit).ToArray());
             if (numeros.Length == 8)
                 return Convert.ToUInt64(numeros).ToString(@"00000\-000");
+
             return cep;
         }
     }

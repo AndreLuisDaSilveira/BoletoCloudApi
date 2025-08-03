@@ -1,16 +1,20 @@
-﻿using BoletoCloudApi.Business.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BoletoCloudApi.Data.Mappings
+﻿namespace BoletoCloudApi.Data.Mappings
 {
+    using BoletoCloudApi.Business.Models;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+    /// <summary>
+    /// Configuração de mapeamento da entidade <see cref="Pagador"/> para o Entity Framework.
+    /// Define propriedades, tipos de coluna e restrições para persistência no banco de dados.
+    /// </summary>
     public class PagadorMapping : IEntityTypeConfiguration<Pagador>
     {
+        /// <summary>
+        /// Configura o mapeamento da entidade <see cref="Pagador"/>,
+        /// especificando chave primária, tipos de coluna, obrigatoriedade e nome da tabela.
+        /// </summary>
+        /// <param name="builder">Construtor de configuração para a entidade.</param>
         public void Configure(EntityTypeBuilder<Pagador> builder)
         {
             builder.HasKey(x => x.Id);
