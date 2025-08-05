@@ -72,26 +72,6 @@
             await SaveChanges();
         }
 
-        // /// <summary>
-        // /// Atualiza uma entidade existente no banco de dados.
-        // /// </summary>
-        // /// <param name="entity">Entidade a ser atualizada.</param>
-        // public virtual async Task Atualizar(TEntity entity)
-        // {
-        //     DbSet.Update(entity);
-        //     await SaveChanges();
-        // }
-
-        // /// <summary>
-        // /// Remove uma entidade pelo seu identificador.
-        // /// </summary>
-        // /// <param name="id">Identificador da entidade a ser removida.</param>
-        // public virtual async Task Remover(Guid id)
-        // {
-        //     DbSet.Remove(new TEntity { Id = id });
-        //     await SaveChanges();
-        // }
-
         /// <summary>
         /// Persiste as alterações realizadas no contexto do banco de dados.
         /// </summary>

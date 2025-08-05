@@ -33,18 +33,6 @@
         /// <returns>Lista de entidades.</returns>
         Task<List<TEntity>> ObterTodos();
 
-        // /// <summary>
-        // /// Atualiza uma entidade existente no repositório.
-        // /// </summary>
-        // /// <param name="entity">Entidade a ser atualizada.</param>
-        // Task Atualizar(TEntity entity);
-
-        // /// <summary>
-        // /// Remove uma entidade pelo seu identificador.
-        // /// </summary>
-        // /// <param name="id">Identificador da entidade a ser removida.</param>
-        // Task Remover(Guid id);
-
         /// <summary>
         /// Busca entidades que atendam ao predicado informado.
         /// </summary>

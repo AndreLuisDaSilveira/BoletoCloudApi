@@ -1,8 +1,8 @@
 ﻿namespace BoletoCloudApi.Business.Services
 {
-    using BoletoCloudApi.Business.httpClient;
     using BoletoCloudApi.Business.Interfaces;
     using BoletoCloudApi.Business.Models;
+    using BoletoCloudApi.Business.Models.Results;
     using BoletoCloudApi.Business.Models.Validation;
 
     /// <summary>
@@ -12,7 +12,7 @@
     public class BoletoService : BaseService, IBoletoService
     {
         private readonly IBoletoRepository _boletoRepository;
-        private readonly BoletoCloudIntegrationService _boletoCloudIntegrationService;
+        private readonly IBoletoCloudIntegrationService _boletoCloudIntegrationService;
 
         /// <summary>
         /// Inicializa uma nova instância da classe <see cref="BoletoService"/>.
@@ -21,7 +21,7 @@
         /// <param name="boletoCloudIntegrationService">Serviço de integração com a BoletoCloud.</param>
         /// <param name="notificador">Gerenciador de notificações.</param>
         public BoletoService(IBoletoRepository boletoRepository,
-                             BoletoCloudIntegrationService boletoCloudIntegrationService,
+                             IBoletoCloudIntegrationService boletoCloudIntegrationService,
                              INotificador notificador) : base(notificador)
         {
             _boletoCloudIntegrationService = boletoCloudIntegrationService;

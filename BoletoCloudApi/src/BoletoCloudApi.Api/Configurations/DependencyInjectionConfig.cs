@@ -28,6 +28,7 @@
             services.Configure<BoletoCloudOptions>(configuration.GetSection("BoletoCloud"));
             services.Configure<BoletoCloudOptions>(configuration.GetSection("BoletoCloudOptions"));
             services.AddScoped(sp => sp.GetRequiredService<Microsoft.Extensions.Options.IOptions<BoletoCloudOptions>>().Value);
+            services.AddScoped<IBoletoCloudIntegrationService, BoletoCloudIntegrationService>();
             services.AddScoped<BoletoCloudIntegrationService>();
             services.AddScoped<IBoletoService, BoletoService>();
             services.AddScoped<INotificador, Notificador>();

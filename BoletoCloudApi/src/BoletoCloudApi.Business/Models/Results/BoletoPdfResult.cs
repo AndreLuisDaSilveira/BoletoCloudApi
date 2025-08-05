@@ -1,4 +1,4 @@
-﻿namespace BoletoCloudApi.Business.Models
+﻿namespace BoletoCloudApi.Business.Models.Results
 {
     /// <summary>
     /// Representa o resultado da geração do PDF de um boleto, contendo os bytes do arquivo e um token de identificação.
