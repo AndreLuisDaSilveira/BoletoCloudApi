@@ -75,7 +75,7 @@
         {
             var result = await _boletosRepository.Buscar(b => 
                 (string.IsNullOrEmpty(numero) || b.Numero.Contains(numero)) &&
-                (string.IsNullOrEmpty(cpf) || b.Pagador.CpfCnpj.Contains(cpf)) &&
+                (string.IsNullOrEmpty(cpf) || b.Pagador.Cprf.Contains(cpf)) &&
                 (!DataEmissaoInicio.HasValue || b.Emissao >= DataEmissaoInicio.Value) &&
                 (!DataEmissaoFim.HasValue || b.Emissao <= DataEmissaoFim.Value));
 
