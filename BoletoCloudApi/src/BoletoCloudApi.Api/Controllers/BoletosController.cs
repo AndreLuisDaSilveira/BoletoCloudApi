@@ -26,7 +26,8 @@
         public BoletosController(IMapper mapper,
                                  IBoletoRepository boletosRepository,
                                  IBoletoService boletoService,
-                                 INotificador notificador) : base(notificador)
+                                 INotificador notificador)
+            : base(notificador)
         {
             _mapper = mapper;
             _boletosRepository = boletosRepository;
@@ -63,28 +64,28 @@
         /// </summary>
         /// <param name="numero">Número do boleto.</param>
         /// <param name="cpf">CPF do pagador.</param>
-        /// <param name="DataEmissaoInicio">Data inicial de emissão.</param>
-        /// <param name="DataEmissaoFim">Data final de emissão.</param>
+        /// <param name="dataEmissaoInicio">Data inicial de emissão.</param>
+        /// <param name="dataEmissaoFim">Data final de emissão.</param>
         /// <returns>Lista de <see cref="BoletoViewModel"/> encontrados ou NotFound.</returns>
         [HttpGet("buscar")]
         public async Task<ActionResult<IEnumerable<BoletoViewModel>>> Buscar(
             [FromQuery]string? numero,
             [FromQuery] string? cpf,
-            [FromQuery] DateTime? DataEmissaoInicio,
-            [FromQuery] DateTime? DataEmissaoFim)
+            [FromQuery] DateTime? dataEmissaoInicio,
+            [FromQuery] DateTime? dataEmissaoFim)
         {
-            var result = await _boletosRepository.Buscar(b => 
+            var result = await _boletosRepository.Buscar(b =>
                 (string.IsNullOrEmpty(numero) || b.Numero.Contains(numero)) &&
                 (string.IsNullOrEmpty(cpf) || b.Pagador.Cprf.Contains(cpf)) &&
-                (!DataEmissaoInicio.HasValue || b.Emissao >= DataEmissaoInicio.Value) &&
-                (!DataEmissaoFim.HasValue || b.Emissao <= DataEmissaoFim.Value));
+                (!dataEmissaoInicio.HasValue || b.Emissao >= dataEmissaoInicio.Value) &&
+                (!dataEmissaoFim.HasValue || b.Emissao <= dataEmissaoFim.Value));
 
             var viwModels = _mapper.Map<IEnumerable<BoletoViewModel>>(result);
 
             if (!viwModels.Any())
                 return NotFound();
 
-            return Ok(viwModels) ;
+            return Ok(viwModels);
         }
 
         /// <summary>
@@ -105,7 +106,7 @@
             {
                 FileBytes = pdfBytes,
                 ContentType = "application/pdf",
-                FileName = "boleto.pdf"
+                FileName = "boleto.pdf",
             });
         }
 
@@ -128,7 +129,7 @@
             {
                 FileBytes = pdfBytes,
                 ContentType = "application/pdf",
-                FileName = "boleto.pdf"
+                FileName = "boleto.pdf",
             });
         }
     }

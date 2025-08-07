@@ -28,7 +28,7 @@
                 .NotEmpty().WithMessage("O nome do pagador não pode ser vazio.")
                 .Length(1, 100).WithMessage("O nome do pagador deve ter entre 1 e 100 caracteres.");
 
-            RuleFor(p => p.CpfCnpj)
+            RuleFor(p => p.Cprf)
                 .NotEmpty().WithMessage("O CPF/CNPJ do pagador não pode ser vazio.")
                 .Length(11, 14).WithMessage("O CPF/CNPJ do pagador deve ter entre 11 e 14 caracteres.");
 

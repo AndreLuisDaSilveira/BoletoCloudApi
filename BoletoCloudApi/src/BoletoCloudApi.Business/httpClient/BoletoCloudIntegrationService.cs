@@ -1,4 +1,4 @@
-﻿namespace BoletoCloudApi.Business.httpClient
+﻿namespace BoletoCloudApi.Business.HttpClient
 {
     using System.Text;
     using BoletoCloudApi.Business.Interfaces;
@@ -83,7 +83,7 @@
                 var content = new FormUrlEncodedContent(parameters);
                 content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded")
                 {
-                    CharSet = "utf-8"
+                    CharSet = "utf-8",
                 };
 
                 var apiKey = _boletoCloudOptions.ApiKey;

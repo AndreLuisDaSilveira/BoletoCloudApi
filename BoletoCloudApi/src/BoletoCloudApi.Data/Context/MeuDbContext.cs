@@ -14,7 +14,8 @@
         /// Configura o rastreamento de consultas para não rastrear entidades e desabilita a detecção automática de alterações.
         /// </summary>
         /// <param name="options">Opções de configuração do contexto.</param>
-        public MeuDbContext(DbContextOptions<MeuDbContext> options) : base(options)
+        public MeuDbContext(DbContextOptions<MeuDbContext> options)
+            : base(options)
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
             ChangeTracker.AutoDetectChangesEnabled = false;

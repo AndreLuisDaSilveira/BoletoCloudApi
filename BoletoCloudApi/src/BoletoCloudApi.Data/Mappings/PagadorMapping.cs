@@ -21,7 +21,7 @@
             builder.Property(x => x.Nome)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
-            builder.Property(x => x.CpfCnpj)
+            builder.Property(x => x.Cprf)
                 .IsRequired()
                 .HasColumnType("varchar(14)");
             builder.Property(x => x.Cep)

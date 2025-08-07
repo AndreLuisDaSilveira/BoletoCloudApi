@@ -1,11 +1,10 @@
 ﻿namespace BoletoCloudApi.Business.Interfaces
 {
-    using BoletoCloudApi.Business.Models;
-
     using System;
     using System.Collections.Generic;
     using System.Linq.Expressions;
     using System.Threading.Tasks;
+    using BoletoCloudApi.Business.Models;
 
     /// <summary>
     /// Interface genérica para repositórios de entidades, definindo operações básicas de acesso a dados.

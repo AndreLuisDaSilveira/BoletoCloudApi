@@ -15,7 +15,8 @@
         /// Inicializa uma nova instância do <see cref="BoletoRepository"/> com o contexto de banco de dados informado.
         /// </summary>
         /// <param name="context">Contexto do banco de dados.</param>
-        public BoletoRepository(MeuDbContext context) : base(context) { }
+        public BoletoRepository(MeuDbContext context)
+            : base(context) { }
 
         /// <summary>
         /// Obtém um boleto pelo identificador informado, incluindo os dados de conta bancária, beneficiário e pagador relacionados.

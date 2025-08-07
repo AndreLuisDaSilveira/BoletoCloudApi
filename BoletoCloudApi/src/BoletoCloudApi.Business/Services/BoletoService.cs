@@ -22,7 +22,8 @@
         /// <param name="notificador">Gerenciador de notificações.</param>
         public BoletoService(IBoletoRepository boletoRepository,
                              IBoletoCloudIntegrationService boletoCloudIntegrationService,
-                             INotificador notificador) : base(notificador)
+                             INotificador notificador)
+            : base(notificador)
         {
             _boletoCloudIntegrationService = boletoCloudIntegrationService;
             _boletoRepository = boletoRepository;
@@ -56,9 +57,12 @@
             if (!ExecutarValidacao(new BoletoValidation(), boleto)
                 || !ExecutarValidacao(new ContaBancariaValidation(), boleto.Conta)
                 || !ExecutarValidacao(new PagadorValidation(), boleto.Pagador)
-                || !ExecutarValidacao(new BeneficiarioValidation(), boleto.Beneficiario)) return [];
+                || !ExecutarValidacao(new BeneficiarioValidation(), boleto.Beneficiario))
+            {
+                return [];
+            }
 
-            if(_boletoRepository.Buscar(b => b.Numero == boleto.Numero).Result.Any())
+            if (_boletoRepository.Buscar(b => b.Numero == boleto.Numero).Result.Any())
             {
                 Notificar("Já existe um boleto cadastrado com o mesmo número.");
                 return [];
