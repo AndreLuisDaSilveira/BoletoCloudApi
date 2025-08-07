@@ -32,6 +32,12 @@ dotnet_naming_style.camel_case_style.capitalization = camel_case
 # Regras de analisadores .NET
 dotnet_diagnostic.CA1822.severity = warning   # Marcar métodos estáticos quando possível
 dotnet_diagnostic.CA1303.severity = none      # Ignorar aviso de literais localizáveis
+dotnet_diagnostic.SA1633.severity = none
+dotnet_diagnostic.SA1611.severity = none
+dotnet_diagnostic.SA1101.severity = none
+dotnet_diagnostic.SA1403.severity = none
+dotnet_diagnostic.SA1623.severity = none
+dotnet_diagnostic.CS8618.severity = none
 
 # Usings não utilizados (Roslyn/.NET Analyzers)
 dotnet_diagnostic.RemoveUnnecessaryImports.severity = error
@@ -44,6 +50,7 @@ dotnet_diagnostic.CS0219.severity = error   # Variável atribuída mas nunca usa
 dotnet_diagnostic.SA1600.severity = error  # Exigir comentários de documentação, mas não verifica idioma
 dotnet_diagnostic.SA1309.severity = none      # Permitir campos privados com underline
 dotnet_diagnostic.SA1629.severity = none    # Ignora erros de texto padrão em <summary>
+dotnet_diagnostic.SA1313.severity = error    
 
 # Comentários em classes e construtores (StyleCop)
 dotnet_diagnostic.SA1600.severity = error   # Exigir comentários de documentação em elementos públicos
