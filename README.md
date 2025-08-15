@@ -30,6 +30,7 @@ API para geração e obtenção de boletos em PDF utilizando a integração com 
 - Injeção de Dependência (DI)
 - HTTP Client Factory
 - Swagger (OpenAPI)
+- StyleCop Analyzers – Analisador de estilo e padrões de codificação para C#, integrado ao build, garantindo qualidade e padronização do código.
 
 ## Arquitetura
 
@@ -121,6 +122,12 @@ Faça um GET para `/api/boletos/{id}/pdf` para obter o PDF do boleto já gerado.
 ## Contribuição
 
 Pull requests são bem-vindos! Para grandes mudanças, abra uma issue primeiro para discutir o que você gostaria de modificar.
+
+## Histórico de Alterações
+
+### [1.0.1] - 2025-08-06
+#### Adicionado
+- Aplicação completa do StyleCop Analyzers em toda a solution
 
 ## Licença
 

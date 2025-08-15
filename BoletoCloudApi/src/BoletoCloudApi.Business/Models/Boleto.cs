@@ -1,62 +1,69 @@
-﻿using System.Runtime;
-
-namespace BoletoCloudApi.Business.Models
+﻿namespace BoletoCloudApi.Business.Models
 {
+    /// <summary>
+    /// Representa um boleto bancário, contendo informações essenciais para emissão, identificação e relacionamento
+    /// com entidades como conta bancária, beneficiário e pagador.
+    /// </summary>
     public class Boleto : Entity
     {
+        /// <summary>
+        /// Número identificador do boleto.
+        /// </summary>
         public string Numero { get; set; }
+
+        /// <summary>
+        /// Documento associado ao boleto (ex: número do documento fiscal).
+        /// </summary>
         public string Documento { get; set; }
+
+        /// <summary>
+        /// Número sequencial do boleto.
+        /// </summary>
         public int Sequencial { get; set; }
+
+        /// <summary>
+        /// Valor monetário do boleto.
+        /// </summary>
         public decimal Valor { get; set; }
+
+        /// <summary>
+        /// Data de vencimento do boleto.
+        /// </summary>
         public DateTime Vencimento { get; set; }
+
+        /// <summary>
+        /// Data de emissão do boleto.
+        /// </summary>
         public DateTime Emissao { get; set; }
+
+        /// <summary>
+        /// Título ou descrição do boleto.
+        /// </summary>
         public string Titulo { get; set; }
+
+        /// <summary>
+        /// Token de autenticação ou identificação adicional do boleto.
+        /// </summary>
         public string? Token { get; set; }
+
+        /// <summary>
+        /// Data de criação do boleto.
+        /// </summary>
         public DateTime CriadoEm { get; set; } = DateTime.Now;
 
+        /// <summary>
+        /// Conta bancária associada ao boleto.
+        /// </summary>
         public ContaBancaria? Conta { get; set; }
+
+        /// <summary>
+        /// Beneficiário do boleto.
+        /// </summary>
         public Beneficiario? Beneficiario { get; set; }
+
+        /// <summary>
+        /// Pagador do boleto.
+        /// </summary>
         public Pagador? Pagador { get; set; }
-    }
-
-    public class ContaBancaria : Entity
-    {
-        public Guid BoletoId { get; set; }
-        public string Numero { get; set; }
-        public int Sequencial { get; set; }
-        public string Banco { get; set; }
-        public string Agencia { get; set; }
-        public string Carteira { get; set; }
-
-        public Boleto Boleto { get; set; }
-
-    }
-
-    public class Beneficiario: Entity
-    {
-        public Guid BoletoId { get; set; }
-        public string Nome { get; set; }
-        public string Cprf { get; set; }
-        public string Cep { get; set; }
-        public string Uf { get; set; }
-        public string Localidade { get; set; }
-        public string Bairro { get; set; }
-        public string Logradouro { get; set; }
-        public string Numero { get; set; }
-        public Boleto Boleto { get; set; }
-    }
-
-    public class Pagador : Entity
-    {
-        public Guid BoletoId { get; set; }
-        public string Nome { get; set; }
-        public string CpfCnpj { get; set; }
-        public string Cep { get; set; }
-        public string Uf { get; set; }
-        public string Localidade { get; set; }
-        public string Bairro { get; set; }
-        public string Logradouro { get; set; }
-        public string Numero { get; set; }
-        public Boleto Boleto { get; set; }
     }
 }

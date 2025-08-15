@@ -1,21 +1,61 @@
-﻿using BoletoCloudApi.Business.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BoletoCloudApi.Business.Interfaces
+﻿namespace BoletoCloudApi.Business.Interfaces
 {
+    using BoletoCloudApi.Business.Models;
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq.Expressions;
+    using System.Threading.Tasks;
+
+    /// <summary>
+    /// Interface genérica para repositórios de entidades, definindo operações básicas de acesso a dados.
+    /// Permite adicionar, consultar, buscar e persistir entidades, além de liberar recursos.
+    /// </summary>
+    /// <typeparam name="TEntity">Tipo da entidade gerenciada pelo repositório.</typeparam>
     public interface IRepository<TEntity> : IDisposable where TEntity : Entity
     {
+        /// <summary>
+        /// Adiciona uma nova entidade ao repositório.
+        /// </summary>
+        /// <param name="entity">Entidade a ser adicionada.</param>
         Task Adicionar(TEntity entity);
+
+        /// <summary>
+        /// Obtém uma entidade pelo seu identificador único.
+        /// </summary>
+        /// <param name="id">Identificador da entidade.</param>
+        /// <returns>Entidade encontrada ou <c>null</c> se não existir.</returns>
         Task<TEntity> ObterPorId(Guid id);
+
+        /// <summary>
+        /// Obtém todas as entidades do tipo <typeparamref name="TEntity"/>.
+        /// </summary>
+        /// <returns>Lista de entidades.</returns>
         Task<List<TEntity>> ObterTodos();
-        //Task Atualizar(TEntity entity);
-        //Task Remover(Guid id);
+
+        // /// <summary>
+        // /// Atualiza uma entidade existente no repositório.
+        // /// </summary>
+        // /// <param name="entity">Entidade a ser atualizada.</param>
+        // Task Atualizar(TEntity entity);
+
+        // /// <summary>
+        // /// Remove uma entidade pelo seu identificador.
+        // /// </summary>
+        // /// <param name="id">Identificador da entidade a ser removida.</param>
+        // Task Remover(Guid id);
+
+        /// <summary>
+        /// Busca entidades que atendam ao predicado informado.
+        /// </summary>
+        /// <param name="predicate">Expressão de filtro para busca.</param>
+        /// <returns>Lista de entidades que satisfazem o predicado.</returns>
         Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
+
+        /// <summary>
+        /// Persiste as alterações realizadas no contexto do repositório.
+        /// </summary>
+        /// <returns>Número de registros afetados.</returns>
         Task<int> SaveChanges();
     }
 }
