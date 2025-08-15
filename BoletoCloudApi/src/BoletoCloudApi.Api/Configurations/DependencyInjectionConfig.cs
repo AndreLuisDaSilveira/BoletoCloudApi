@@ -1,6 +1,6 @@
 ﻿namespace BoletoCloudApi.Api.Configurations
 {
-    using BoletoCloudApi.Business.httpClient;
+    using BoletoCloudApi.Business.HttpClient;
     using BoletoCloudApi.Business.Interfaces;
     using BoletoCloudApi.Business.Notificacoes;
     using BoletoCloudApi.Business.Services;

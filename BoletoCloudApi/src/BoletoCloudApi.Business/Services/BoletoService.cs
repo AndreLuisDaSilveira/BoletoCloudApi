@@ -1,6 +1,6 @@
 ﻿namespace BoletoCloudApi.Business.Services
 {
-    using BoletoCloudApi.Business.httpClient;
+    using BoletoCloudApi.Business.HttpClient;
     using BoletoCloudApi.Business.Interfaces;
     using BoletoCloudApi.Business.Models;
     using BoletoCloudApi.Business.Models.Validation;

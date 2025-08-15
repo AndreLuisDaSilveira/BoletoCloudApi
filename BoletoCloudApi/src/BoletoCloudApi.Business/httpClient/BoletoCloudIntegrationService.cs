@@ -1,4 +1,4 @@
-﻿namespace BoletoCloudApi.Business.httpClient
+﻿namespace BoletoCloudApi.Business.HttpClient
 {
     using System.Text;
     using BoletoCloudApi.Business.Models;

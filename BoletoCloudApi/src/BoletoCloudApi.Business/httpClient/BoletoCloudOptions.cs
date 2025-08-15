@@ -1,4 +1,4 @@
-﻿namespace BoletoCloudApi.Business.httpClient
+﻿namespace BoletoCloudApi.Business.HttpClient
 {
     /// <summary>
     /// Representa as opções de configuração para integração com a API BoletoCloud.
