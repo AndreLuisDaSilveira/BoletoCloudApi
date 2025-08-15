@@ -1,5 +1,9 @@
 ﻿namespace BoletoCloudApi.Business.Services
 {
+<<<<<<< HEAD
+=======
+    using BoletoCloudApi.Business.HttpClient;
+>>>>>>> main
     using BoletoCloudApi.Business.Interfaces;
     using BoletoCloudApi.Business.Models;
     using BoletoCloudApi.Business.Models.Results;

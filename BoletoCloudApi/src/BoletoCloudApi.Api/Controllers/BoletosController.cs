@@ -21,8 +21,10 @@
         /// <summary>
         /// Obtém um boleto pelo identificador.
         /// </summary>
-        /// <param name="id">Identificador do boleto.</param>
-        /// <returns>O <see cref="BoletoViewModel"/> correspondente ou NotFound.</returns>
+        /// <param name="mapper">Instância do <see cref="IMapper"/> para mapeamento entre modelos de domínio e ViewModels.</param>
+        /// <param name="boletosRepository">Repositório para acesso e manipulação de dados de boletos.</param>
+        /// <param name="boletoService">Serviço responsável pelas regras de negócio relacionadas a boletos.</param>
+        /// <param name="notificador">Instância de <see cref="INotificador"/> para gerenciar notificações.</param>
         public BoletosController(IMapper mapper,
                                  IBoletoRepository boletosRepository,
                                  IBoletoService boletoService,
