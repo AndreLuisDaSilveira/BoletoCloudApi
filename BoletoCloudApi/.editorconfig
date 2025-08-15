@@ -1,7 +1,11 @@
 # .editorconfig para projeto .NET 8 C#
 root = true
 
+##################################################
+# [1] Arquivos .cs - Configurações básicas
+##################################################
 [*.cs]
+
 # Espaços e indentação
 indent_style = space
 indent_size = 4
@@ -11,14 +15,26 @@ trim_trailing_whitespace = true
 # Codificação de arquivos
 charset = utf-8-bom
 
-# Regras de estilo C#
+##################################################
+# [2] Estilo de código C#
+##################################################
+
+# Diretivas using
 dotnet_sort_system_directives_first = true
 dotnet_separate_import_directive_groups = true
+
+# Estilo de chaves
 csharp_new_line_before_open_brace = all
+
+# Indentação de blocos e labels
 csharp_indent_case_contents = true
 csharp_indent_switch_labels = true
 
-# Nomenclatura
+##################################################
+# [3] Convenções de nomenclatura
+##################################################
+
+# Regra: membros privados devem estar em camelCase
 dotnet_naming_rule.private_members_should_be_camel_case.severity = suggestion
 dotnet_naming_rule.private_members_should_be_camel_case.symbols = private_fields
 dotnet_naming_rule.private_members_should_be_camel_case.style = camel_case_style
@@ -29,28 +45,61 @@ dotnet_naming_symbols.private_fields.required_modifiers =
 
 dotnet_naming_style.camel_case_style.capitalization = camel_case
 
-# Regras de analisadores .NET
-dotnet_diagnostic.CA1822.severity = warning   # Marcar métodos estáticos quando possível
-dotnet_diagnostic.CA1303.severity = none      # Ignorar aviso de literais localizáveis
+##################################################
+# [4] Regras de analisadores .NET
+##################################################
 
-# Usings não utilizados (Roslyn/.NET Analyzers)
+# Torna métodos que não usam instância em static (boas práticas de performance)
+dotnet_diagnostic.CA1822.severity = warning
+
+# Desativa aviso sobre literais que deveriam ser localizáveis
+dotnet_diagnostic.CA1303.severity = none
+
+# Desativa regras StyleCop específicas (comentários e padrões de nomes)
+dotnet_diagnostic.SA1633.severity = none      # Cabeçalho do arquivo
+dotnet_diagnostic.SA1101.severity = none      # Uso obrigatório de "this"
+dotnet_diagnostic.SA1403.severity = none      # Classes parciais devem estar em arquivos separados
+dotnet_diagnostic.SA1623.severity = none      # Comentário de retorno padrão
+dotnet_diagnostic.CS8618.severity = none      # Campo não inicializado (nullable)
+
+# Comentário de parâmetro obrigatório
+dotnet_diagnostic.SA1611.severity = error      
+
+##################################################
+# [5] Limpeza de código (Roslyn/.NET Analyzers)
+##################################################
+
+# Using não utilizados
 dotnet_diagnostic.RemoveUnnecessaryImports.severity = error
 
-# Variáveis não utilizadas (Roslyn/.NET Analyzers)
-dotnet_diagnostic.CS0168.severity = error   # Variável declarada mas não utilizada
-dotnet_diagnostic.CS0219.severity = error   # Variável atribuída mas nunca usada
+# Variáveis declaradas mas não utilizadas
+dotnet_diagnostic.CS0168.severity = error
 
-# Regras StyleCop (exemplo)
-dotnet_diagnostic.SA1600.severity = error  # Exigir comentários de documentação, mas não verifica idioma
-dotnet_diagnostic.SA1309.severity = none      # Permitir campos privados com underline
-dotnet_diagnostic.SA1629.severity = none    # Ignora erros de texto padrão em <summary>
+# Variáveis atribuídas mas nunca usadas
+dotnet_diagnostic.CS0219.severity = error
 
-# Comentários em classes e construtores (StyleCop)
-dotnet_diagnostic.SA1600.severity = error   # Exigir comentários de documentação em elementos públicos
-dotnet_diagnostic.SA1642.severity = none   # Exigir comentários de documentação em construtore
+##################################################
+# [6] Regras StyleCop específicas
+##################################################
 
-# Ordem dos métodos (StyleCop)
-dotnet_diagnostic.SA1201.severity = error   # Elementos devem aparecer na ordem correta
-dotnet_diagnostic.SA1202.severity = error   # Elementos devem ser ordenados por acessibilidade
+# Comentários XML obrigatórios em membros públicos
+dotnet_diagnostic.SA1600.severity = error
 
+# Permitir underline em campos privados (_campo)
+dotnet_diagnostic.SA1309.severity = none
+
+# Ignora erros em comentários XML padrão (como <summary>)
+dotnet_diagnostic.SA1629.severity = none
+
+# Comentários XML em construtores não são obrigatórios
+dotnet_diagnostic.SA1642.severity = none
+
+# Ordem dos elementos na classe (ex: campos, propriedades, métodos)
+dotnet_diagnostic.SA1201.severity = error
+
+# Ordenar por nível de acessibilidade (public, internal, protected, private)
+dotnet_diagnostic.SA1202.severity = error
+
+##################################################
 # Fim do arquivo
+##################################################
